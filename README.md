@@ -68,7 +68,7 @@
 
 
 ### DevOps  
-<div align="center">  
+<div>  
 <img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/linux-original.svg" alt="Linux" height="50" />  
 <img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/git-scm-icon.svg" alt="Git" height="50" />  
 <img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/gnu_bash-icon.svg" alt="Bash" height="50" />  
@@ -84,7 +84,7 @@
 
 
 ## Connect with me  
-<div align="center">
+<div>
 <a href="https://github.com/MohamedWaelBishr" target="_blank">
 <img src=https://img.shields.io/badge/github-%2324292e.svg?&style=for-the-badge&logo=github&logoColor=white alt=github style="margin-bottom: 5px;" />
 </a>
@@ -105,13 +105,15 @@
 
 
 ## Github Stats  
-<div align="center"><img src="https://github-readme-stats.vercel.app/api?username=mohamedwaelbishr&show_icons=true&count_private=true&hide_border=true" align="center" /></div>  
+<div><img src="https://github-readme-stats.vercel.app/api?username=mohamedwaelbishr&show_icons=true&count_private=true&hide_border=true" align="center" /></div>  
 
 <br/>
 
 ## Github Metrics 
 
+
 ![Metrics](https://metrics.lecoq.io/mohamedwaelbishr?template=classic&base.metadata=0&lines=1&people=1&languages=1&base.indepth=false&languages.limit=8&languages.threshold=0%25&languages.other=false&languages.colors=github&languages.sections=most-used&languages.indepth=false&languages.analysis.timeout=15&languages.categories=markup%2C%20programming&languages.recent.categories=markup%2C%20programming&languages.recent.load=300&languages.recent.days=14&people.limit=24&people.identicons=false&people.identicons.hide=false&people.size=28&people.types=followers%2C%20following&people.shuffle=false&config.timezone=Africa%2FCairo)
+
 
 
   
