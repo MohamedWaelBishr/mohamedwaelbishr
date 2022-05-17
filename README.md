@@ -2,13 +2,13 @@
 
 ![A passionate full stack engineer from Egypt.](https://rishavanand.github.io/static/images/greetings.gif)
 
-  ### Hi there 👋, my name is Mohamed.
-#### A passionate full stack engineer from Egypt.
 
-I am a software engineer from Mansoura Dakahlia , Egypt .
-Graduated From Nile Academy For Engineering and Technology in 2019.
 
-Work in multiple software fields like Telecommunications Engineering , Biomedical Engineering and finally as a Software Engineer.
+### <div >Hi there 👋 I am Mohamed , a software engineer from Mansoura Dakahlia , Egypt.
+###  Graduated From Nile Academy For Engineering and Technology in 2019.
+### Work in multiple software fields like Telecommunications Engineering , Biomedical Engineering and finally as a Software Engineer.</div>  
+
+
 
 <br/>  
 
@@ -83,9 +83,36 @@ Work in multiple software fields like Telecommunications Engineering , Biomedica
 - 📫 How to reach me:  mohamedwaelbishr@gmail.com 
 
 
-[<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/github.svg' alt='github' height='40'>](https://github.com/MohamedWaelBishr)  [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg' alt='linkedin' height='40'>](https://www.linkedin.com/in/MohamedWaelBishr/)  [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/facebook.svg' alt='facebook' height='40'>](https://www.facebook.com/MohamedWaelBishr)  [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg' alt='instagram' height='40'>](https://www.instagram.com/MohamedWaelBishr/)  [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/youtube.svg' alt='YouTube' height='40'>](https://www.youtube.com/channel/UCPsn93JUyYIEkPXAsmsC_Hg)  
+## Connect with me  
+<div align="center">
+<a href="https://github.com/MohamedWaelBishr" target="_blank">
+<img src=https://img.shields.io/badge/github-%2324292e.svg?&style=for-the-badge&logo=github&logoColor=white alt=github style="margin-bottom: 5px;" />
+</a>
+<a href="https://www.linkedin.com/in/MohamedWaelBishr" target="_blank">
+<img src=https://img.shields.io/badge/linkedin-%231E77B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white alt=linkedin style="margin-bottom: 5px;" />
+</a>
+<a href="https://www.facebook.com/MohamedWaelBishr" target="_blank">
+<img src=https://img.shields.io/badge/facebook-%232E87FB.svg?&style=for-the-badge&logo=facebook&logoColor=white alt=facebook style="margin-bottom: 5px;" />
+</a>
+<a href="https://www.instagram.com/MohamedWaelBishr" target="_blank">
+<img src=https://img.shields.io/badge/instagram-%23000000.svg?&style=for-the-badge&logo=instagram&logoColor=white alt=instagram style="margin-bottom: 5px;" />
+</a>  
+</div>  
+  
 
-![GitHub metrics](https://metrics.lecoq.io/MohamedWaelBishr)  
+<br/>  
+
+
+
+## Github Stats  
+<div align="center"><img src="https://github-readme-stats.vercel.app/api?username=mohamedwaelbishr&show_icons=true&count_private=true&hide_border=true" align="center" /></div>  
+
+<br/>
+
+## Github Metrics 
+
+![Metrics](https://metrics.lecoq.io/mohamedwaelbishr?template=classic&base.metadata=0&lines=1&people=1&languages=1&base.indepth=false&languages.limit=8&languages.threshold=0%25&languages.other=false&languages.colors=github&languages.sections=most-used&languages.indepth=false&languages.analysis.timeout=15&languages.categories=markup%2C%20programming&languages.recent.categories=markup%2C%20programming&languages.recent.load=300&languages.recent.days=14&people.limit=24&people.identicons=false&people.identicons.hide=false&people.size=28&people.types=followers%2C%20following&people.shuffle=false&config.timezone=Africa%2FCairo)
+
 
   
 
