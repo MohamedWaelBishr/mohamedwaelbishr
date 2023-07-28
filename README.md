@@ -78,10 +78,6 @@
 
 <br/>  
 
-- 🔭 I’m currently working on Promat [ Marketing Materials , Media Monitoring and Submission Application  ] - Client : Egyptian Drug Authority EDA 
-- 🌱 I’m currently learning Strapi , React Native and DevOps Tech. 
-- 📫 How to reach me:  mohamedwaelbishr@gmail.com 
-
 
 ## Connect with me  
 <div>
