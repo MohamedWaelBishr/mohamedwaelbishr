@@ -8,7 +8,19 @@
 
 ###
 
-<h4 align="center">With a diverse background spanning senior software engineering, full-stack development, medical device maintenance, and telecommunications, I bring a unique blend of skills to every role. Currently excelling as a Senior Software Engineer at Octane, I specialize in creating visually appealing and high-performance dashboards. My experience at Everest Minds solidified my expertise in full-stack development and agile methodologies, contributing to innovative software solutions. In my previous role at Maggie Medical Company, I provided maintenance for medical devices and developed a comprehensive SQL archiving system. As a Telecommunications Field Engineer at Tele Trust, I demonstrated proficiency in 2G, 3G, and LTE technologies. With a solid foundation in problem-solving, OOP, design patterns, and REST APIs, I'm not just a technical expert but also a leader and mentor, fostering a culture of continuous learning. Ready to bring my versatile skill set to new challenges. Let's connect!</h4>
+<h4 align="left">As a Senior Software Engineer with a strong frontend focus, I specialize in crafting high-performance, user-centric web applications and dashboards that drive business insights and operational excellence. My work bridges the gap between elegant UI design and robust technical execution—leveraging modern technologies like React.js, Next.js, TailwindCSS, ShadCN/ui, Chakra UI, and Framer Motion to deliver seamless, responsive, and highly interactive digital experiences.
+
+At Octane, I led the development of scalable, real-time dashboards for financial analytics, transaction monitoring, and risk assessment—working closely with cross-functional teams to ensure visual polish, accessibility, and system performance. I also contributed to code quality, component architecture, and agile delivery, championing CI/CD pipelines (Vercel) and tools like Jira, Bitbucket, and React Testing Library.
+
+Before Octane, I worked at Everest Minds as a Full-Stack Engineer, where I delivered process automation tools and cross-platform applications for the healthcare sector using React, NestJS, Angular, MySQL, MongoDB, and React Native. I thrived in Agile environments, often taking ownership of full project lifecycles from design to deployment.
+
+My background also includes technical roles in the biomedical and telecom fields, where I gained hands-on experience with complex systems, field operations, and compliance—a foundation that honed my problem-solving skills and systems thinking.
+
+I'm passionate about building scalable software, improving engineering culture, and staying current with frontend innovations—from component libraries and motion design to performance optimization and developer experience (DX).
+
+🔧 Core Skills
+
+React.js · TypeScript · Next.js · TailwindCSS · ShadCN/ui · Framer Motion · Chakra UI · Agile · CI/CD · Testing (Jest, RTL) · Vercel · REST APIs · Component Architecture · Cross-team Collaboration · System Design</h4>
 
 ###
 
