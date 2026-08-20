@@ -104,14 +104,88 @@ const mohamed = {
 
 ## 📌 Featured Work
 
-| Project | What it is | Stack |
-| :--- | :--- | :--- |
-| **[Portfolio](https://portfolio-mohamedwaelbishrs-projects.vercel.app)** | My work, shipped and live | `Next.js` `TypeScript` `Tailwind` |
-| **[raycast-prompt-enhancer](https://github.com/MohamedWaelBishr/raycast-prompt-enhancer)** | Raycast extension that rewrites weak prompts into good ones | `TypeScript` `Raycast API` `LLM` |
-| **[react-turbo-select](https://github.com/MohamedWaelBishr/react-turbo-select)** | Flexible React select — single, multi, tags, fully themeable | `React` `TypeScript` |
-| **[quran-app](https://github.com/MohamedWaelBishr/quran-app)** | Quran reader & audio player | `Next.js` `TypeScript` |
-| **[useEffect-useState-extension](https://github.com/MohamedWaelBishr/useEffect-useState-vscode-extension)** | VS Code extension — React hook scaffolding in a keystroke | `TypeScript` `VS Code API` |
-| **[easy-commit-and-pr-builder](https://github.com/MohamedWaelBishr/easy-commit-and-pr-builder)** | Commit + PR authoring without leaving the editor | `TypeScript` `VS Code API` |
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>⚡ ChronoFlow</h3>
+      <p><em>Workflow orchestration for auditable operations</em></p>
+      <p>Visual workflow builder with <b>40+ node types</b>, real-time multi-user collaboration, and an execution engine that keeps a provable audit trail of every run.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Next.js%2015-000000?style=flat-square&logo=nextdotjs&logoColor=white" />
+        <img src="https://img.shields.io/badge/NestJS%2011-EA2845?style=flat-square&logo=nestjs&logoColor=white" />
+        <img src="https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white" />
+        <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white" />
+        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
+      </p>
+      <p><img src="https://img.shields.io/badge/Private%20source-6B7280?style=flat-square&logo=github&logoColor=white" /></p>
+    </td>
+    <td width="50%" valign="top">
+      <h3>🧪 Mocklyst</h3>
+      <p><em>Instant API mocking — no signup, no install</em></p>
+      <p>Working mock endpoint in under 30 seconds. Dual-mode schema designer (visual builder + Monaco), configurable status codes, headers and latency, request analytics, auto-expiry after 7 days.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Next.js%2015-000000?style=flat-square&logo=nextdotjs&logoColor=white" />
+        <img src="https://img.shields.io/badge/React%2019-61DAFB?style=flat-square&logo=react&logoColor=black" />
+        <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white" />
+        <img src="https://img.shields.io/badge/Tailwind%204-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white" />
+      </p>
+      <p><a href="https://mocklyst.vercel.app"><img src="https://img.shields.io/badge/Live%20demo-38BDF8?style=flat-square&logo=vercel&logoColor=white" /></a></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>📚 Teacher Toolbox</h3>
+      <p><em>AI-generated worksheets for classrooms</em></p>
+      <p>Teachers generate, share and track educational worksheets with AI. Drag-and-drop question builder, KaTeX math rendering, DOCX export, and separate teacher / student / live-session flows.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" />
+        <img src="https://img.shields.io/badge/Strapi-4945FF?style=flat-square&logo=strapi&logoColor=white" />
+        <img src="https://img.shields.io/badge/TanStack%20Query-FF4154?style=flat-square&logo=reactquery&logoColor=white" />
+        <img src="https://img.shields.io/badge/Radix%20UI-161618?style=flat-square&logo=radixui&logoColor=white" />
+        <img src="https://img.shields.io/badge/dnd--kit-0EA5E9?style=flat-square" />
+      </p>
+      <p><a href="https://teacher-toolbox-frontend.vercel.app"><img src="https://img.shields.io/badge/Live%20demo-38BDF8?style=flat-square&logo=vercel&logoColor=white" /></a></p>
+    </td>
+    <td width="50%" valign="top">
+      <h3>🎓 Azooz LMS</h3>
+      <p><em>Learning management, built to feel like a product</em></p>
+      <p>Full LMS with course delivery and dashboards, 3D scenes via React Three Fiber, Framer Motion throughout, and Mixpanel instrumentation on the learner funnel.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" />
+        <img src="https://img.shields.io/badge/React%20Three%20Fiber-000000?style=flat-square&logo=three.js&logoColor=white" />
+        <img src="https://img.shields.io/badge/Framer%20Motion-0055FF?style=flat-square&logo=framer&logoColor=white" />
+        <img src="https://img.shields.io/badge/Mixpanel-7856FF?style=flat-square&logo=mixpanel&logoColor=white" />
+      </p>
+      <p><a href="https://azooz-lms-nextjs.vercel.app"><img src="https://img.shields.io/badge/Live%20demo-38BDF8?style=flat-square&logo=vercel&logoColor=white" /></a></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>🤖 Raycast Prompt Enhancer</h3>
+      <p><em>Turn a lazy prompt into a good one, in place</em></p>
+      <p>Raycast extension that rewrites weak prompts against an LLM without leaving the launcher.</p>
+      <p>
+        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
+        <img src="https://img.shields.io/badge/Raycast%20API-FF6363?style=flat-square&logo=raycast&logoColor=white" />
+      </p>
+      <p><a href="https://github.com/MohamedWaelBishr/raycast-prompt-enhancer"><img src="https://img.shields.io/badge/Source-181717?style=flat-square&logo=github&logoColor=white" /></a></p>
+    </td>
+    <td width="50%" valign="top">
+      <h3>🧩 react-turbo-select</h3>
+      <p><em>The select component I kept rewriting, so I published it</em></p>
+      <p>Flexible React select — single, multi, tags, fully themeable, no wrapper bloat.</p>
+      <p>
+        <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black" />
+        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
+      </p>
+      <p><a href="https://github.com/MohamedWaelBishr/react-turbo-select"><img src="https://img.shields.io/badge/Source-181717?style=flat-square&logo=github&logoColor=white" /></a></p>
+    </td>
+  </tr>
+</table>
+
+<div align="center">
+  <a href="https://portfolio-mohamedwaelbishrs-projects.vercel.app"><b>→ More work on my portfolio</b></a>
+</div>
 
 ###
 
