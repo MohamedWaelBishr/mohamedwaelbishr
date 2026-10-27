@@ -9,6 +9,8 @@ Constraints these files are written against (GitHub serves them through <img>):
   - text widths vary by OS, so reveals are whole-line or over-sized clips
 """
 import math
+import re
+import urllib.request
 from pathlib import Path
 
 OUT = Path(__file__).resolve().parent.parent / "assets"
@@ -50,9 +52,9 @@ def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def svg(w, h, label, body, css=""):
+def svg(w, h, label, body, css="", x0=0):
     return (
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" '
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="{x0} 0 {w} {h}" '
         f'role="img" aria-label="{esc(label)}" fill="none">\n'
         f"<title>{esc(label)}</title>\n<style>{BASE_CSS}{css}</style>\n{body}\n</svg>\n"
     )
@@ -313,6 +315,9 @@ def pipeline():
 
 # ── project cards ─────────────────────────────────────────────────────────
 CW, CH = 440, 260
+GUTTER = 8  # transparent space on a card's inner edge; README pairs them at 50% + 50% with no gap
+# column each paired card sits in, so its outer edge lines up with the full-width sections
+SIDE = {"chronoflow": "left", "teacher-toolbox": "left", "raycast-prompt-enhancer": "left"}
 PX, PY, PW, PH = 20, 78, 400, 124  # preview area
 
 
@@ -343,7 +348,8 @@ def card(slug, title, tagline, glyph, accent, status, chips, preview, label, css
 <rect x="{PX + .5}" y="{PY + .5}" width="{PW - 1}" height="{PH - 1}" rx="10" fill="{SURFACE}" stroke="{BORDER}"/>
 <g clip-path="url(#pv)">{preview}</g>
 {''.join(chip_svg)}"""
-    write(f"cards/{slug}.svg", svg(CW, CH, label, body, css))
+    x0 = 0 if SIDE.get(slug) == "left" else -GUTTER
+    write(f"cards/{slug}.svg", svg(CW + GUTTER, CH, label, body, css, x0))
 
 
 def card_chronoflow():
@@ -613,6 +619,79 @@ def card_open_gebra():
     write("cards/open-gebra.svg", svg(W, H, "Open Gebra — an all-in-one interactive math suite: graphing, geometry, 3D, CAS and AI worksheets in one workspace", body))
 
 
+# ── stack ─────────────────────────────────────────────────────────────────
+VENDOR = OUT / "vendor"
+
+
+def skillicons(row, ids):
+    """Skill icon strip from skillicons.dev, cached in assets/vendor so the
+    build is repeatable offline and the README never depends on that host.
+    Element ids are prefixed per row so nested strips cannot collide."""
+    path = VENDOR / f"skillicons-{row}.svg"
+    if not path.exists():
+        url = f"https://skillicons.dev/icons?i={','.join(ids)}&perline={len(ids)}"
+        VENDOR.mkdir(parents=True, exist_ok=True)
+        req = urllib.request.Request(url, headers={"User-Agent": "profile-readme-build"})  # default UA gets a 403
+        path.write_bytes(urllib.request.urlopen(req, timeout=30).read())
+    src = path.read_text()
+    vb = re.search(r'viewBox="([^"]+)"', src).group(1)
+    inner = src[src.index(">", src.index("<svg")) + 1 : src.rindex("</svg>")]
+    inner = re.sub(r'id="([^"]+)"', rf'id="{row}-\1"', inner)
+    inner = re.sub(r"url\(#([^)]+)\)", rf"url(#{row}-\1)", inner)
+    inner = re.sub(r'href="#([^"]+)"', rf'href="#{row}-\1"', inner)
+    return vb, inner
+
+
+def stack():
+    W = 880
+    icon_rows = [
+        ("frontend", ["ts", "js", "react", "nextjs", "redux", "tailwind", "sass", "html", "css", "angular"]),
+        ("backend", ["nodejs", "nestjs", "express", "postgres", "mysql", "mongodb", "redis", "supabase", "python"]),
+        ("delivery", ["git", "githubactions", "docker", "jest", "vercel", "figma", "vscode", "threejs"]),
+    ]
+    chip_rows = [
+        ("ui_motion", [("shadcn/ui", TEXT), ("Radix", TEXT), ("Framer Motion", VIOLET), ("React Native", CYAN), ("Chakra UI", GREEN)]),
+        ("ai_tooling", [("Claude", "#D97757"), ("Anthropic API", TEXT), ("OpenAI API", TEXT), ("MCP servers", CYAN), ("Raycast", "#FF6363")]),
+    ]
+    top, step, ix = 64, 58, 196
+    rows = []
+    for i, (key, ids) in enumerate(icon_rows):
+        y = top + i * step
+        vb, inner = skillicons(key, ids)
+        vw, vh = map(float, vb.split()[2:])
+        h = 40
+        rows.append(
+            f'<g class="up" style="animation-delay:{.2 + i * .12:.2f}s">'
+            f'<text x="28" y="{y + 26}" class="mono" font-size="14"><tspan fill="{CYAN}">{key}</tspan><tspan fill="{MUTED}">:</tspan></text>'
+            f'<svg x="{ix}" y="{y}" width="{vw * h / vh:.1f}" height="{h}" viewBox="{vb}">{inner}</svg></g>'
+        )
+    for j, (key, chips) in enumerate(chip_rows):
+        i = len(icon_rows) + j
+        y = top + i * step
+        out, x = [], ix
+        for name, col in chips:
+            w = len(name) * 7.8 + 34
+            out.append(
+                f'<rect x="{x + .5}" y="{y + 6.5}" width="{w:.0f}" height="28" rx="14" fill="{SURFACE}" stroke="{BORDER}"/>'
+                f'<circle cx="{x + 15}" cy="{y + 20.5}" r="4" fill="{col}"/>'
+                f'<text x="{x + 26}" y="{y + 25}" class="mono" font-size="12.5" fill="{TEXT}">{esc(name)}</text>'
+            )
+            x += w + 8
+        rows.append(
+            f'<g class="up" style="animation-delay:{.2 + i * .12:.2f}s">'
+            f'<text x="28" y="{y + 26}" class="mono" font-size="14"><tspan fill="{CYAN}">{key}</tspan><tspan fill="{MUTED}">:</tspan></text>'
+            f'{"".join(out)}</g>'
+        )
+    H = top + (len(icon_rows) + len(chip_rows)) * step + 6
+    body = f"""
+<defs>{GRAD_DEFS}</defs>
+<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="15.5" fill="{BG}" stroke="{BORDER}"/>
+{chrome(W, "~/profile/stack.yaml")}
+<line x1="{ix - 20.5}" y1="52" x2="{ix - 20.5}" y2="{H - 14}" stroke="{BORDER}"/>
+{''.join(rows)}"""
+    write("stack.svg", svg(W, H, "Stack — frontend: TypeScript, JavaScript, React, Next.js, Redux, Tailwind, Sass, HTML, CSS, Angular; backend: Node.js, NestJS, Express, PostgreSQL, MySQL, MongoDB, Redis, Supabase, Python; delivery: Git, GitHub Actions, Docker, Jest, Vercel, Figma, VS Code, Three.js; UI and motion: shadcn/ui, Radix, Framer Motion, React Native, Chakra UI; AI tooling: Claude, Anthropic API, OpenAI API, MCP servers, Raycast", body))
+
+
 # ── section headers (dark + light variants, transparent background) ───────
 def section_headers():
     palettes = {
@@ -668,6 +747,7 @@ if __name__ == "__main__":
     hero()
     now_editor()
     pipeline()
+    stack()
     card_open_gebra()
     card_chronoflow()
     card_mocklyst()

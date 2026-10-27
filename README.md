@@ -43,40 +43,7 @@ I build the screens where decisions get made.
   <img src="assets/headers/stack-light.svg" width="100%" alt="03 — Stack" />
 </picture>
 
-<table>
-  <tr>
-    <td width="120"><code>frontend</code></td>
-    <td><img src="https://skillicons.dev/icons?i=ts,js,react,nextjs,redux,tailwind,sass,html,css,angular&perline=10" height="40" alt="TypeScript, JavaScript, React, Next.js, Redux, Tailwind, Sass, HTML, CSS, Angular" /></td>
-  </tr>
-  <tr>
-    <td><code>backend</code></td>
-    <td><img src="https://skillicons.dev/icons?i=nodejs,nestjs,express,postgres,mysql,mongodb,redis,supabase,python&perline=10" height="40" alt="Node.js, NestJS, Express, PostgreSQL, MySQL, MongoDB, Redis, Supabase, Python" /></td>
-  </tr>
-  <tr>
-    <td><code>delivery</code></td>
-    <td><img src="https://skillicons.dev/icons?i=git,githubactions,docker,jest,vercel,figma,vscode,threejs&perline=10" height="40" alt="Git, GitHub Actions, Docker, Jest, Vercel, Figma, VS Code, Three.js" /></td>
-  </tr>
-  <tr>
-    <td><code>ui + motion</code></td>
-    <td>
-      <img src="https://img.shields.io/badge/shadcn%2Fui-0B0F17?style=flat-square&logo=shadcnui&logoColor=E6EDF3" alt="shadcn/ui" />
-      <img src="https://img.shields.io/badge/Radix-0B0F17?style=flat-square&logo=radixui&logoColor=E6EDF3" alt="Radix UI" />
-      <img src="https://img.shields.io/badge/Framer%20Motion-0B0F17?style=flat-square&logo=framer&logoColor=A78BFA" alt="Framer Motion" />
-      <img src="https://img.shields.io/badge/React%20Native-0B0F17?style=flat-square&logo=react&logoColor=22D3EE" alt="React Native" />
-      <img src="https://img.shields.io/badge/Chakra%20UI-0B0F17?style=flat-square&logo=chakraui&logoColor=34D399" alt="Chakra UI" />
-    </td>
-  </tr>
-  <tr>
-    <td><code>ai tooling</code></td>
-    <td>
-      <img src="https://img.shields.io/badge/Claude-0B0F17?style=flat-square&logo=claude&logoColor=D97757" alt="Claude" />
-      <img src="https://img.shields.io/badge/Anthropic%20API-0B0F17?style=flat-square&logo=anthropic&logoColor=E6EDF3" alt="Anthropic API" />
-      <img src="https://img.shields.io/badge/OpenAI%20API-0B0F17?style=flat-square&logoColor=E6EDF3" alt="OpenAI API" />
-      <img src="https://img.shields.io/badge/MCP%20servers-0B0F17?style=flat-square&logo=modelcontextprotocol&logoColor=E6EDF3" alt="Model Context Protocol" />
-      <img src="https://img.shields.io/badge/Raycast-0B0F17?style=flat-square&logo=raycast&logoColor=FF6363" alt="Raycast" />
-    </td>
-  </tr>
-</table>
+<img src="assets/stack.svg" width="100%" alt="Stack — frontend: TypeScript, JavaScript, React, Next.js, Redux, Tailwind, Sass, HTML, CSS, Angular; backend: Node.js, NestJS, Express, PostgreSQL, MySQL, MongoDB, Redis, Supabase, Python; delivery: Git, GitHub Actions, Docker, Jest, Vercel, Figma, VS Code, Three.js; UI and motion: shadcn/ui, Radix, Framer Motion, React Native, Chakra UI; AI tooling: Claude, Anthropic API, OpenAI API, MCP servers, Raycast" />
 
 <br/>
 
@@ -86,22 +53,19 @@ I build the screens where decisions get made.
 </picture>
 
 <p align="center">
-  <a href="https://www.open-gebra.com"><img src="assets/cards/open-gebra.svg" width="98%" alt="Open Gebra — an all-in-one interactive math suite: graphing, geometry, 3D, CAS and AI worksheets in one workspace, no install or account needed (live)" /></a>
+  <a href="https://www.open-gebra.com"><img src="assets/cards/open-gebra.svg" width="100%" alt="Open Gebra — an all-in-one interactive math suite: graphing, geometry, 3D, CAS and AI worksheets in one workspace, no install or account needed (live)" /></a>
 </p>
 
-<p align="center">
-  <a href="https://portfolio-mohamedwaelbishrs-projects.vercel.app"><img src="assets/cards/chronoflow.svg" width="49%" alt="ChronoFlow — visual workflow builder with 40+ node types, real-time collaboration and an auditable execution engine (private source)" /></a>
-  <a href="https://mocklyst.vercel.app"><img src="assets/cards/mocklyst.svg" width="49%" alt="Mocklyst — a working mock API endpoint in under 30 seconds (live demo)" /></a>
+<p>
+  <a href="https://portfolio-mohamedwaelbishrs-projects.vercel.app"><img src="assets/cards/chronoflow.svg" width="50%" alt="ChronoFlow — visual workflow builder with 40+ node types, real-time collaboration and an auditable execution engine (private source)" /></a><a href="https://mocklyst.vercel.app"><img src="assets/cards/mocklyst.svg" width="50%" alt="Mocklyst — a working mock API endpoint in under 30 seconds (live demo)" /></a>
 </p>
 
-<p align="center">
-  <a href="https://teacher-toolbox-frontend.vercel.app"><img src="assets/cards/teacher-toolbox.svg" width="49%" alt="Teacher Toolbox — AI worksheet generator with drag-and-drop builder, KaTeX and DOCX export (live demo)" /></a>
-  <a href="https://azooz-lms-nextjs.vercel.app"><img src="assets/cards/azooz-lms.svg" width="49%" alt="Azooz LMS — learning management with React Three Fiber, Framer Motion and Mixpanel (live demo)" /></a>
+<p>
+  <a href="https://teacher-toolbox-frontend.vercel.app"><img src="assets/cards/teacher-toolbox.svg" width="50%" alt="Teacher Toolbox — AI worksheet generator with drag-and-drop builder, KaTeX and DOCX export (live demo)" /></a><a href="https://azooz-lms-nextjs.vercel.app"><img src="assets/cards/azooz-lms.svg" width="50%" alt="Azooz LMS — learning management with React Three Fiber, Framer Motion and Mixpanel (live demo)" /></a>
 </p>
 
-<p align="center">
-  <a href="https://github.com/MohamedWaelBishr/raycast-prompt-enhancer"><img src="assets/cards/raycast-prompt-enhancer.svg" width="49%" alt="Raycast Prompt Enhancer — rewrites weak prompts with an LLM from the launcher (source)" /></a>
-  <a href="https://github.com/MohamedWaelBishr/react-turbo-select"><img src="assets/cards/react-turbo-select.svg" width="49%" alt="react-turbo-select — themeable React select with single, multi and tag modes (source)" /></a>
+<p>
+  <a href="https://github.com/MohamedWaelBishr/raycast-prompt-enhancer"><img src="assets/cards/raycast-prompt-enhancer.svg" width="50%" alt="Raycast Prompt Enhancer — rewrites weak prompts with an LLM from the launcher (source)" /></a><a href="https://github.com/MohamedWaelBishr/react-turbo-select"><img src="assets/cards/react-turbo-select.svg" width="50%" alt="react-turbo-select — themeable React select with single, multi and tag modes (source)" /></a>
 </p>
 
 <p align="center"><sub>every card is a link · <a href="https://portfolio-mohamedwaelbishrs-projects.vercel.app">more on the portfolio →</a></sub></p>
@@ -124,13 +88,12 @@ I build the screens where decisions get made.
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=MohamedWaelBishr&theme=github_dark" width="100%" alt="GitHub profile summary" />
 </div>
 
-<div align="center">
-  <img height="180" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=MohamedWaelBishr&theme=github_dark" alt="GitHub stats" />
-  <img height="180" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=MohamedWaelBishr&theme=github_dark" alt="Most committed languages" />
-</div>
+<p>
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=MohamedWaelBishr&theme=github_dark" width="50%" alt="GitHub stats" /><img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=MohamedWaelBishr&theme=github_dark" width="50%" alt="Most committed languages" />
+</p>
 
 <div align="center">
-  <img src="https://streak-stats.demolab.com?user=MohamedWaelBishr&background=0B0F17&border=1E293B&stroke=1E293B&ring=22D3EE&fire=A78BFA&currStreakNum=E6EDF3&sideNums=E6EDF3&currStreakLabel=22D3EE&sideLabels=8B97A8&dates=4B5565&border_radius=16" alt="GitHub contribution streak" />
+  <img src="https://streak-stats.demolab.com?user=MohamedWaelBishr&background=0B0F17&border=1E293B&stroke=1E293B&ring=22D3EE&fire=A78BFA&currStreakNum=E6EDF3&sideNums=E6EDF3&currStreakLabel=22D3EE&sideLabels=8B97A8&dates=4B5565&border_radius=16&card_width=880&card_height=200" width="100%" alt="GitHub contribution streak" />
 </div>
 
 <div align="center">
