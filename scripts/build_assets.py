@@ -269,12 +269,12 @@ def now_editor():
 def pipeline():
     W, H = 880, 250
     stages = [
-        ("◇", "spec", "read the real problem"),
-        ("✎", "design", "figma → tokens"),
-        ("</>", "build", "typed end to end"),
-        ("✓", "test", "unit · e2e · a11y"),
-        ("▲", "ship", "ci/cd → prod"),
-        ("∿", "measure", "telemetry → iterate"),
+        ("clipboard-check", "spec", "read the real problem"),
+        ("pen-tool", "design", "figma → tokens"),
+        ("terminal-prompt", "build", "typed end to end"),
+        ("bug-shield", "test", "unit · e2e · a11y"),
+        ("rocket", "ship", "ci/cd → prod"),
+        ("analytics-dashboard", "measure", "telemetry → iterate"),
     ]
     bw, gap, x0, by = 124, 20, 20, 54
     period = 7.2
@@ -286,7 +286,7 @@ def pipeline():
 <g>
   <rect x="{x + .5}" y="{by + .5}" width="{bw}" height="72" rx="12" fill="{SURFACE}" stroke="{BORDER}"/>
   <rect x="{x + .5}" y="{by + .5}" width="{bw}" height="72" rx="12" stroke="{CYAN}" stroke-width="1.5" class="lit" style="animation-delay:{delay:.2f}s"/>
-  <text x="{x + 16}" y="{by + 30}" class="mono" font-size="15" fill="{CYAN}">{esc(glyph)}</text>
+  {koboyo(glyph, x + 14, by + 11, 26, 24, CYAN)}
   <text x="{x + 16}" y="{by + 56}" class="sans" font-size="16" font-weight="700" fill="{TEXT}">{name}</text>
   <text x="{x + bw - 12}" y="{by + 30}" text-anchor="end" class="mono" font-size="10.5" fill="{DIM}">0{i + 1}</text>
   <text x="{x + bw / 2 + .5}" y="{by + 98}" text-anchor="middle" class="mono" font-size="11" fill="{MUTED}">{esc(cap)}</text>
@@ -321,7 +321,7 @@ SIDE = {"chronoflow": "left", "teacher-toolbox": "left", "raycast-prompt-enhance
 PX, PY, PW, PH = 20, 78, 400, 124  # preview area
 
 
-def card(slug, title, tagline, glyph, accent, status, chips, preview, label, css=""):
+def card(slug, title, tagline, icon, accent, status, chips, preview, label, css=""):
     status_col = {"live": GREEN, "private": MUTED, "oss": VIOLET}[status[0]]
     chip_svg, x = [], 20
     for c in chips:
@@ -340,7 +340,7 @@ def card(slug, title, tagline, glyph, accent, status, chips, preview, label, css
 <rect x=".5" y=".5" width="{CW - 1}" height="{CH - 1}" rx="15.5" fill="{BG}" stroke="{BORDER}"/>
 <rect x="16" y=".5" width="{CW - 32}" height="1.5" fill="url(#topline)"/>
 <rect x="20" y="20" width="40" height="40" rx="10" fill="{accent}" fill-opacity=".14" stroke="{accent}" stroke-opacity=".35"/>
-<text x="40" y="46" text-anchor="middle" class="mono" font-size="17" font-weight="700" fill="{accent}">{esc(glyph)}</text>
+{koboyo(icon, 26, 26, 28, 28, accent)}
 <text x="72" y="38" class="sans" font-size="19" font-weight="700" fill="{TEXT}">{esc(title)}</text>
 <text x="72" y="57" class="sans" font-size="12.5" fill="{MUTED}">{esc(tagline)}</text>
 <circle cx="{CW - 20 - len(status[1]) * 7.2 - 10:.1f}" cy="34" r="3.5" fill="{status_col}"/>
@@ -373,7 +373,7 @@ def card_chronoflow():
         )
     out.append(f'<text x="{ox + 14}" y="{oy + PH - 10}" class="mono" font-size="10.5" fill="{MUTED}"><tspan fill="{GREEN}">✓</tspan> run complete · audit trail sealed</text>')
     css = ".run{opacity:0;animation:run 3.2s ease-out infinite}@keyframes run{0%{opacity:0}10%{opacity:1}45%{opacity:.25}100%{opacity:0}}"
-    card("chronoflow", "ChronoFlow", "Workflow orchestration for auditable ops", "⚡", AMBER, ("private", "private"),
+    card("chronoflow", "ChronoFlow", "Workflow orchestration for auditable ops", "workflow", AMBER, ("private", "private"),
          ["Next.js 15", "NestJS 11", "Postgres", "Redis", "Docker"], "".join(out),
          "ChronoFlow — visual workflow builder with 40+ node types, real-time collaboration and an auditable execution engine", css)
 
@@ -396,7 +396,7 @@ def card_mocklyst():
         ".ln{animation:ln 4.5s ease infinite both}@keyframes ln{0%{opacity:0;transform:translateX(-6px)}8%,85%{opacity:1;transform:none}100%{opacity:0}}"
         ".bar{transform-box:fill-box;transform-origin:left;animation:bar 4.5s cubic-bezier(.2,.7,.2,1) infinite}@keyframes bar{0%,15%{transform:scaleX(0)}40%,85%{transform:scaleX(1)}100%{transform:scaleX(1);opacity:0}}"
     )
-    card("mocklyst", "Mocklyst", "Instant API mocking — no signup, no install", "{}", CYAN, ("live", "live"),
+    card("mocklyst", "Mocklyst", "Instant API mocking — no signup, no install", "api-gateway", CYAN, ("live", "live"),
          ["Next.js 15", "React 19", "Supabase", "Tailwind 4"], "".join(out),
          "Mocklyst — a working mock API endpoint in under 30 seconds, with schema designer, status codes, latency and analytics", css)
 
@@ -422,7 +422,7 @@ def card_teacher():
         ".drag{animation:drag 4s cubic-bezier(.3,.7,.2,1) infinite}@keyframes drag{0%{transform:translate(200px,-40px);opacity:0}15%{opacity:1}45%,85%{transform:none;opacity:1}100%{opacity:0}}"
         ".gen{transform-box:fill-box;transform-origin:left;animation:gen 4s ease infinite}@keyframes gen{0%{transform:scaleX(0)}40%,100%{transform:scaleX(1)}}"
     )
-    card("teacher-toolbox", "Teacher Toolbox", "AI-generated worksheets for classrooms", "∑", GREEN, ("live", "live"),
+    card("teacher-toolbox", "Teacher Toolbox", "AI-generated worksheets for classrooms", "toolbox", GREEN, ("live", "live"),
          ["Next.js", "Strapi", "TanStack Query", "dnd-kit"], paper + chip + side,
          "Teacher Toolbox — AI worksheet generator with drag-and-drop builder, KaTeX math and DOCX export", css)
 
@@ -463,7 +463,7 @@ def card_azooz():
 {''.join(f'<rect x="{rx + 58 + i * 16}" y="{PY + 83}" width="11" height="11" rx="3" fill="{PINK}" fill-opacity="{1 if i < 4 else .18}"/>' for i in range(8))}
 <text x="{rx}" y="{PY + 112}" class="mono" font-size="10.5" fill="{DIM}">R3F scene · mixpanel funnel tracked</text>""")
     css = ".prog{transform-box:fill-box;transform-origin:left;animation:prog 5s cubic-bezier(.2,.7,.2,1) infinite}@keyframes prog{0%{transform:scaleX(.05)}60%,100%{transform:scaleX(.72)}}"
-    card("azooz-lms", "Azooz LMS", "Learning management that feels like a product", "◈", PINK, ("live", "live"),
+    card("azooz-lms", "Azooz LMS", "Learning management that feels like a product", "graduation-cap", PINK, ("live", "live"),
          ["Next.js", "R3F", "Framer Motion", "Mixpanel"], "".join(out),
          "Azooz LMS — course delivery and dashboards with React Three Fiber 3D scenes, Framer Motion and Mixpanel analytics", css)
 
@@ -479,7 +479,7 @@ def card_raycast():
 <text x="{ox + 4}" y="{oy + 70}" class="mono ln" font-size="11" fill="{MUTED}" style="animation-delay:1.1s"><tspan fill="#FF6363">→</tspan> Find the bug, explain the root cause,</text>
 <text x="{ox + 4}" y="{oy + 88}" class="mono ln" font-size="11" fill="{MUTED}" style="animation-delay:1.6s"><tspan fill="#FF6363">→</tspan> then propose a minimal diff + a test.</text>"""
     css = ".ln{animation:ln 4.5s ease infinite both}@keyframes ln{0%{opacity:0;transform:translateX(-6px)}8%,85%{opacity:1;transform:none}100%{opacity:0}}"
-    card("raycast-prompt-enhancer", "Prompt Enhancer", "Raycast: a lazy prompt in, a good one out", "⌘", "#FF6363", ("oss", "open source"),
+    card("raycast-prompt-enhancer", "Prompt Enhancer", "Raycast: a lazy prompt in, a good one out", "wand-sparkles", "#FF6363", ("oss", "open source"),
          ["TypeScript", "Raycast API", "LLM"], out,
          "Raycast Prompt Enhancer — a Raycast extension that rewrites weak prompts with an LLM without leaving the launcher", css)
 
@@ -516,7 +516,7 @@ def card_turbo_select():
         ".chip{animation:chip 4.2s cubic-bezier(.3,1.4,.5,1) infinite both}@keyframes chip{0%{opacity:0;transform:translateY(4px)}10%,85%{opacity:1;transform:none}100%{opacity:0}}"
         ".cur{animation:cur 4.2s steps(1) infinite}@keyframes cur{0%{transform:translateY(0)}14%{transform:translateY(0)}28%{transform:translateY(18px)}42%{transform:translateY(36px)}56%,100%{transform:translateY(54px)}}"
     )
-    card("react-turbo-select", "react-turbo-select", "The select I kept rewriting — so I shipped it", "▾", VIOLET, ("oss", "open source"),
+    card("react-turbo-select", "react-turbo-select", "The select I kept rewriting — so I shipped it", "dropdown-menu", VIOLET, ("oss", "open source"),
          ["React", "TypeScript", "npm"], out,
          "react-turbo-select — a flexible, themeable React select with single, multi and tag modes", css)
 
@@ -583,7 +583,7 @@ def card_open_gebra():
 <rect x="16" y=".5" width="{W - 32}" height="1.5" fill="url(#topline)"/>
 
 <rect x="24" y="24" width="44" height="44" rx="11" fill="{accent}" fill-opacity=".16" stroke="{accent}" stroke-opacity=".45"/>
-<path d="M33 56c5-14 9-20 13-20s6 10 13-4" stroke="{accent}" stroke-width="2.4" stroke-linecap="round"/>
+{koboyo("cosine-wave", 30, 30, 32, 32, accent)}
 <text x="82" y="44" class="sans" font-size="24" font-weight="800" letter-spacing="-.4" fill="{TEXT}">Open <tspan fill="url(#og)">Gebra</tspan></text>
 <text x="82" y="64" class="sans" font-size="13" fill="{MUTED}">An all-in-one interactive math suite</text>
 <rect x="{gx - 124.5}" y="24.5" width="104" height="22" rx="11" fill="{accent}" fill-opacity=".14" stroke="{accent}" stroke-opacity=".5"/>
@@ -621,6 +621,22 @@ def card_open_gebra():
 
 # ── stack ─────────────────────────────────────────────────────────────────
 VENDOR = OUT / "vendor"
+
+
+def koboyo(slug, x, y, w, h, color, extra=""):
+    """Hand-drawn icon from koboyo.com/icons (free for commercial use, no
+    attribution required), cached in assets/vendor/koboyo and inlined as a
+    nested <svg> so it can take any palette colour. The files are plain
+    filled paths, so they inherit the fill set here."""
+    path = VENDOR / "koboyo" / f"{slug}.svg"
+    if not path.exists():
+        req = urllib.request.Request(f"https://koboyo.com/icons/svg/{slug}.svg", headers={"User-Agent": "profile-readme-build"})
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(urllib.request.urlopen(req, timeout=30).read())
+    src = path.read_text()
+    vb = re.search(r'viewBox="([^"]+)"', src).group(1)
+    inner = src[src.index(">", src.index("<svg")) + 1 : src.rindex("</svg>")]
+    return f'<svg x="{x}" y="{y}" width="{w}" height="{h}" viewBox="{vb}" fill="{color}"{extra}>{inner}</svg>'
 
 
 def skillicons(row, ids):
@@ -699,15 +715,15 @@ def section_headers():
         "light": dict(title="#1F2328", muted="#59636E", line="#D1D9E0", accent="#0891B2", accent2="#7C3AED"),
     }
     sections = [
-        ("about", "About", "~/about.md"),
-        ("now", "Right now", "~/now.ts"),
-        ("stack", "Stack", "~/stack.yaml"),
-        ("work", "Selected work", "~/projects/*"),
-        ("ship", "How I ship", "~/Makefile"),
-        ("telemetry", "Telemetry", "~/.github/stats"),
+        ("about", "About", "~/about.md", "teacher-laptop"),
+        ("now", "Right now", "~/now.ts", "coffee-mug"),
+        ("stack", "Stack", "~/stack.yaml", "layers"),
+        ("work", "Selected work", "~/projects/*", "briefcase"),
+        ("ship", "How I ship", "~/Makefile", "deploy-rocket"),
+        ("telemetry", "Telemetry", "~/.github/stats", "chart"),
     ]
     W, H = 880, 64
-    for i, (slug, title, path) in enumerate(sections, 1):
+    for i, (slug, title, path, icon) in enumerate(sections, 1):
         for mode, p in palettes.items():
             css = """
 .scan{animation:scan 5s cubic-bezier(.6,0,.4,1) infinite;transform-box:view-box}
@@ -715,9 +731,10 @@ def section_headers():
 """
             body = f"""
 <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{p['accent']}" stop-opacity="0"/><stop offset=".5" stop-color="{p['accent']}"/><stop offset="1" stop-color="{p['accent2']}" stop-opacity="0"/></linearGradient></defs>
-<text x="0" y="38" class="mono" font-size="14" font-weight="700" fill="{p['accent']}">{i:02d}</text>
-<text x="32" y="38" class="mono" font-size="14" fill="{p['muted']}">/</text>
-<text x="48" y="39" class="sans" font-size="25" font-weight="800" letter-spacing="-.4" fill="{p['title']}">{esc(title)}</text>
+{koboyo(icon, 0, 12, 34, 34, p['accent'])}
+<text x="46" y="38" class="mono" font-size="14" font-weight="700" fill="{p['accent']}">{i:02d}</text>
+<text x="76" y="38" class="mono" font-size="14" fill="{p['muted']}">/</text>
+<text x="92" y="39" class="sans" font-size="25" font-weight="800" letter-spacing="-.4" fill="{p['title']}">{esc(title)}</text>
 <text x="{W}" y="38" text-anchor="end" class="mono" font-size="13" fill="{p['muted']}">{esc(path)}</text>
 <rect x="0" y="54" width="{W}" height="1" fill="{p['line']}"/>
 <rect x="0" y="53.5" width="200" height="2" rx="1" fill="url(#g)" class="scan"/>"""
@@ -734,12 +751,14 @@ def footer():
 <rect width="{W}" height="{H}" fill="{BG}"/>
 <circle cx="760" cy="150" r="120" fill="{VIOLET}" fill-opacity=".14" filter="url(#blur)"/>
 <circle cx="120" cy="0" r="110" fill="{CYAN}" fill-opacity=".12" filter="url(#blur)"/>
+<g class="float">{koboyo("handshake", 690, 30, 156, 90, VIOLET, ' fill-opacity=".85"')}</g>
 <text x="32" y="46" class="mono" font-size="14" fill="{TEXT}"><tspan fill="{GREEN}">➜</tspan> <tspan fill="{CYAN}">~/profile</tspan> echo $NEXT</text>
 <text x="32" y="88" class="sans up" style="animation-delay:.4s" font-size="26" font-weight="800" letter-spacing="-.5" fill="url(#brand)">Let's build something people actually use.</text>
 <text x="32" y="122" class="mono fade" style="animation-delay:.9s" font-size="13" fill="{MUTED}">mohamedwaelbishr@gmail.com <tspan fill="{DIM}">·</tspan> process exited with code <tspan fill="{GREEN}">0</tspan> <tspan fill="{CYAN}" class="blink">▍</tspan></text>
 </g>
 <rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="15.5" stroke="{BORDER}"/>"""
-    write("footer.svg", svg(W, H, "Let's build something people actually use — mohamedwaelbishr@gmail.com", body))
+    css = ".float{animation:float 4s ease-in-out infinite alternate}@keyframes float{to{transform:translateY(-6px)}}"
+    write("footer.svg", svg(W, H, "Let's build something people actually use — mohamedwaelbishr@gmail.com", body, css))
 
 
 if __name__ == "__main__":
