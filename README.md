@@ -86,6 +86,10 @@ I build the screens where decisions get made.
 </picture>
 
 <p align="center">
+  <a href="https://www.open-gebra.com"><img src="assets/cards/open-gebra.svg" width="98%" alt="Open Gebra — an all-in-one interactive math suite: graphing, geometry, 3D, CAS and AI worksheets in one workspace, no install or account needed (live)" /></a>
+</p>
+
+<p align="center">
   <a href="https://portfolio-mohamedwaelbishrs-projects.vercel.app"><img src="assets/cards/chronoflow.svg" width="49%" alt="ChronoFlow — visual workflow builder with 40+ node types, real-time collaboration and an auditable execution engine (private source)" /></a>
   <a href="https://mocklyst.vercel.app"><img src="assets/cards/mocklyst.svg" width="49%" alt="Mocklyst — a working mock API endpoint in under 30 seconds (live demo)" /></a>
 </p>

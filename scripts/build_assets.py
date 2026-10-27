@@ -515,6 +515,104 @@ def card_turbo_select():
          "react-turbo-select — a flexible, themeable React select with single, multi and tag modes", css)
 
 
+def card_open_gebra():
+    """Full-width featured card: copy on the left, a live sine graph on the right."""
+    W, H = 880, 260
+    accent = "#8B5CF6"
+    gx, gy, gw, gh = 452, 20, 408, 220  # graph panel
+    ox, oy = gx + gw / 2, gy + gh / 2 - 6  # graph origin
+    ux, uy = 30, 26  # px per unit
+    amps = [1.6, .8, 2.2, 1.6]
+    xs = [i / 5 for i in range(-32, 33)]
+
+    def wave(a):
+        return "M" + "L".join(f"{ox + x * ux:.1f} {oy - a * math.sin(x) * uy:.1f}" for x in xs)
+
+    period = 9
+    d_vals = ";".join(wave(a) for a in amps)
+    px = 3.6
+    py_vals = ";".join(f"{oy - a * math.sin(px) * uy:.1f}" for a in amps)
+    slider_x0, slider_w = gx + 150, 150
+    knob_vals = ";".join(f"{slider_x0 + slider_w * (a - .5) / 2:.1f}" for a in amps)
+    spline = "keySplines=\".45 0 .55 1;.45 0 .55 1;.45 0 .55 1\" calcMode=\"spline\""
+
+    grid = []
+    for i in range(-6, 7):
+        x = ox + i * ux
+        grid.append(f'<line x1="{x}" y1="{gy + 40}" x2="{x}" y2="{gy + gh - 40}" stroke="{BORDER}" stroke-opacity=".6"/>')
+    for j in range(-2, 3):
+        y = oy + j * uy
+        grid.append(f'<line x1="{gx + 12}" y1="{y}" x2="{gx + gw - 12}" y2="{y}" stroke="{BORDER}" stroke-opacity=".6"/>')
+
+    # amplitude readout: one text per value, shown in turn
+    readouts = []
+    n = len(amps) - 1
+    for k, a in enumerate(amps[:-1]):
+        vis = ";".join("1" if i == k else "0" for i in range(n)) + (";1" if k == 0 else ";0")
+        readouts.append(
+            f'<text x="{slider_x0 + slider_w + 14}" y="{gy + gh - 15}" class="mono" font-size="11.5" font-weight="700" fill="{TEXT}" opacity="{1 if k == 0 else 0}">{a}'
+            f'<animate attributeName="opacity" values="{vis}" keyTimes="{";".join(f"{i / n:.3f}" for i in range(n + 1))}" calcMode="discrete" dur="{period}s" repeatCount="indefinite"/></text>'
+        )
+
+    tools = ["Graphing", "Geometry", "3D", "CAS", "AI worksheets"]
+    chip_svg, x = [], 24
+    for c in tools:
+        w = len(c) * 7.4 + 18
+        chip_svg.append(
+            f'<rect x="{x + .5}" y="206.5" width="{w:.0f}" height="22" rx="11" fill="{SURFACE}" stroke="{BORDER}"/>'
+            f'<text x="{x + w / 2 + .5:.1f}" y="221.5" text-anchor="middle" class="mono" font-size="11" fill="{MUTED}">{c}</text>'
+        )
+        x += w + 6
+
+    body = f"""
+<defs>{GRAD_DEFS}
+<clipPath id="pv"><rect x="{gx}" y="{gy}" width="{gw}" height="{gh}" rx="12"/></clipPath>
+<linearGradient id="topline" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{accent}" stop-opacity="0"/><stop offset=".5" stop-color="{accent}"/><stop offset="1" stop-color="{accent}" stop-opacity="0"/>
+<animateTransform attributeName="gradientTransform" type="translate" values="-1 0;1 0" dur="4s" repeatCount="indefinite"/></linearGradient>
+<linearGradient id="og" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{accent}"/><stop offset="1" stop-color="{VIOLET}"/></linearGradient>
+<filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="50"/></filter>
+</defs>
+<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="15.5" fill="{BG}" stroke="{BORDER}"/>
+<circle cx="200" cy="40" r="90" fill="{accent}" fill-opacity=".14" filter="url(#blur)"/>
+<rect x="16" y=".5" width="{W - 32}" height="1.5" fill="url(#topline)"/>
+
+<rect x="24" y="24" width="44" height="44" rx="11" fill="{accent}" fill-opacity=".16" stroke="{accent}" stroke-opacity=".45"/>
+<path d="M33 56c5-14 9-20 13-20s6 10 13-4" stroke="{accent}" stroke-width="2.4" stroke-linecap="round"/>
+<text x="82" y="44" class="sans" font-size="24" font-weight="800" letter-spacing="-.4" fill="{TEXT}">Open <tspan fill="url(#og)">Gebra</tspan></text>
+<text x="82" y="64" class="sans" font-size="13" fill="{MUTED}">An all-in-one interactive math suite</text>
+<rect x="{gx - 124.5}" y="24.5" width="104" height="22" rx="11" fill="{accent}" fill-opacity=".14" stroke="{accent}" stroke-opacity=".5"/>
+<circle cx="{gx - 110}" cy="35.5" r="3.5" fill="{GREEN}"/><circle cx="{gx - 110}" cy="35.5" r="3.5" fill="{GREEN}" class="pulse"/>
+<text x="{gx - 101}" y="39.5" class="mono" font-size="11" fill="{TEXT}">new · live</text>
+
+<text x="24" y="110" class="sans" font-size="15" fill="{TEXT}">Graph, construct, calculate and teach in one</text>
+<text x="24" y="131" class="sans" font-size="15" fill="{TEXT}">connected workspace — <tspan fill="{accent}" font-weight="700">12 tools</tspan>, one canvas.</text>
+<text x="24" y="166" class="mono" font-size="11.5" fill="{MUTED}"><tspan fill="{GREEN}">✓</tspan> no install   <tspan fill="{GREEN}">✓</tspan> no account   <tspan fill="{GREEN}">✓</tspan> classroom-ready</text>
+<text x="24" y="190" class="mono" font-size="11.5" fill="{accent}">www.open-gebra.com ↗</text>
+{''.join(chip_svg)}
+
+<rect x="{gx + .5}" y="{gy + .5}" width="{gw - 1}" height="{gh - 1}" rx="12" fill="{SURFACE}" stroke="{BORDER}"/>
+<g clip-path="url(#pv)">
+  <text x="{gx + 16}" y="{gy + 24}" class="mono" font-size="11" fill="{MUTED}">Open Gebra / Graphing</text>
+  <text x="{gx + gw - 16}" y="{gy + 24}" text-anchor="end" class="mono" font-size="11" fill="{accent}">y = a · sin(x)</text>
+  {''.join(grid)}
+  <line x1="{gx + 12}" y1="{oy}" x2="{gx + gw - 12}" y2="{oy}" stroke="{DIM}"/>
+  <line x1="{ox}" y1="{gy + 40}" x2="{ox}" y2="{gy + gh - 40}" stroke="{DIM}"/>
+  <path d="{wave(amps[0])}" stroke="{accent}" stroke-width="5" stroke-opacity=".18" stroke-linejoin="round">
+    <animate attributeName="d" values="{d_vals}" dur="{period}s" repeatCount="indefinite" {spline}/></path>
+  <path d="{wave(amps[0])}" stroke="url(#og)" stroke-width="2.4" stroke-linejoin="round">
+    <animate attributeName="d" values="{d_vals}" dur="{period}s" repeatCount="indefinite" {spline}/></path>
+  <circle cx="{ox + px * ux}" cy="{oy - amps[0] * math.sin(px) * uy:.1f}" r="5" fill="{BG}" stroke="{TEXT}" stroke-width="2">
+    <animate attributeName="cy" values="{py_vals}" dur="{period}s" repeatCount="indefinite" {spline}/></circle>
+  <text x="{ox + px * ux - 12}" y="{oy + 44}" text-anchor="end" class="mono" font-size="10.5" fill="{MUTED}">P = (3.6, a·sin 3.6)</text>
+  <text x="{gx + 16}" y="{gy + gh - 15}" class="mono" font-size="11" fill="{MUTED}">amplitude</text>
+  <rect x="{slider_x0}" y="{gy + gh - 22}" width="{slider_w}" height="4" rx="2" fill="{BORDER}"/>
+  <circle cx="{slider_x0 + slider_w * .55:.1f}" cy="{gy + gh - 20}" r="7" fill="{accent}" stroke="{BG}" stroke-width="2">
+    <animate attributeName="cx" values="{knob_vals}" dur="{period}s" repeatCount="indefinite" {spline}/></circle>
+  {''.join(readouts)}
+</g>"""
+    write("cards/open-gebra.svg", svg(W, H, "Open Gebra — an all-in-one interactive math suite: graphing, geometry, 3D, CAS and AI worksheets in one workspace", body))
+
+
 # ── section headers (dark + light variants, transparent background) ───────
 def section_headers():
     palettes = {
@@ -570,6 +668,7 @@ if __name__ == "__main__":
     hero()
     now_editor()
     pipeline()
+    card_open_gebra()
     card_chronoflow()
     card_mocklyst()
     card_teacher()
