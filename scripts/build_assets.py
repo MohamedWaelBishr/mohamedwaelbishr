@@ -708,12 +708,9 @@ def stack():
     write("stack.svg", svg(W, H, "Stack — frontend: TypeScript, JavaScript, React, Next.js, Redux, Tailwind, Sass, HTML, CSS, Angular; backend: Node.js, NestJS, Express, PostgreSQL, MySQL, MongoDB, Redis, Supabase, Python; delivery: Git, GitHub Actions, Docker, Jest, Vercel, Figma, VS Code, Three.js; UI and motion: shadcn/ui, Radix, Framer Motion, React Native, Chakra UI; AI tooling: Claude, Anthropic API, OpenAI API, MCP servers, Raycast", body))
 
 
-# ── section headers (dark + light variants, transparent background) ───────
+# ── section headers ───────────────────────────────────────────────────────
 def section_headers():
-    palettes = {
-        "dark": dict(title="#E6EDF3", muted="#8B97A8", line="#30363D", accent=CYAN, accent2=VIOLET),
-        "light": dict(title="#1F2328", muted="#59636E", line="#D1D9E0", accent="#0891B2", accent2="#7C3AED"),
-    }
+    """Dark title bars, so the README reads dark on GitHub's light theme too."""
     sections = [
         ("about", "About", "~/about.md", "teacher-laptop"),
         ("now", "Right now", "~/now.ts", "coffee-mug"),
@@ -723,22 +720,67 @@ def section_headers():
         ("telemetry", "Telemetry", "~/.github/stats", "chart"),
     ]
     W, H = 880, 64
-    for i, (slug, title, path, icon) in enumerate(sections, 1):
-        for mode, p in palettes.items():
-            css = """
+    css = """
 .scan{animation:scan 5s cubic-bezier(.6,0,.4,1) infinite;transform-box:view-box}
 @keyframes scan{from{transform:translateX(-240px)}to{transform:translateX(900px)}}
 """
-            body = f"""
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{p['accent']}" stop-opacity="0"/><stop offset=".5" stop-color="{p['accent']}"/><stop offset="1" stop-color="{p['accent2']}" stop-opacity="0"/></linearGradient></defs>
-{koboyo(icon, 0, 12, 34, 34, p['accent'])}
-<text x="46" y="38" class="mono" font-size="14" font-weight="700" fill="{p['accent']}">{i:02d}</text>
-<text x="76" y="38" class="mono" font-size="14" fill="{p['muted']}">/</text>
-<text x="92" y="39" class="sans" font-size="25" font-weight="800" letter-spacing="-.4" fill="{p['title']}">{esc(title)}</text>
-<text x="{W}" y="38" text-anchor="end" class="mono" font-size="13" fill="{p['muted']}">{esc(path)}</text>
-<rect x="0" y="54" width="{W}" height="1" fill="{p['line']}"/>
-<rect x="0" y="53.5" width="200" height="2" rx="1" fill="url(#g)" class="scan"/>"""
-            write(f"headers/{slug}-{mode}.svg", svg(W, H, f"{i:02d} — {title}", body, css))
+    for i, (slug, title, path, icon) in enumerate(sections, 1):
+        body = f"""
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{CYAN}" stop-opacity="0"/><stop offset=".5" stop-color="{CYAN}"/><stop offset="1" stop-color="{VIOLET}" stop-opacity="0"/></linearGradient>
+<clipPath id="c"><rect width="{W}" height="{H}" rx="14"/></clipPath></defs>
+<g clip-path="url(#c)">
+<rect width="{W}" height="{H}" fill="{BG}"/>
+<rect x="0" y="{H - 2}" width="200" height="2" fill="url(#g)" class="scan"/>
+</g>
+<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="13.5" stroke="{BORDER}"/>
+{koboyo(icon, 18, 15, 34, 34, CYAN)}
+<text x="64" y="38" class="mono" font-size="14" font-weight="700" fill="{CYAN}">{i:02d}</text>
+<text x="94" y="38" class="mono" font-size="14" fill="{MUTED}">/</text>
+<text x="110" y="40" class="sans" font-size="24" font-weight="800" letter-spacing="-.4" fill="{TEXT}">{esc(title)}</text>
+<text x="{W - 22}" y="38" text-anchor="end" class="mono" font-size="13" fill="{MUTED}">{esc(path)}</text>"""
+        write(f"headers/{slug}.svg", svg(W, H, f"{i:02d} — {title}", body, css))
+
+
+# ── about.md ──────────────────────────────────────────────────────────────
+def about():
+    """The About copy as a dark panel. The README keeps the full text in alt."""
+    import textwrap
+    W = 880
+    blocks = [
+        ("now", CYAN, "Real-time financial dashboards at **Octane**: transaction monitoring, risk assessment, analytics that update while you watch. A dropped frame or a mislabeled axis costs someone money, so I own both halves: the render path and the pixel."),
+        ("before", VIOLET, "Full-stack at **Everest Minds**, shipping process-automation tools and cross-platform healthcare apps with React, NestJS, Angular, React Native, MySQL and MongoDB. Features owned end to end, design through deploy."),
+        ("origin", GREEN, "Biomedical and telecom field ops: complex hardware, compliance, real consequences. That's where I learned most bugs are systems problems wearing a code costume."),
+    ]
+
+    def line_svg(x, y, line):
+        parts = line.replace("\u00a0", " ").split("**")
+        spans = "".join(
+            f'<tspan font-weight="700" fill="{TEXT}">{esc(t)}</tspan>' if k % 2 else esc(t) for k, t in enumerate(parts)
+        )
+        return f'<text x="{x}" y="{y}" class="sans" font-size="15" fill="{TEXT}" fill-opacity=".86">{spans}</text>'
+
+    y, lh, tx = 120, 23, 128
+    out = []
+    for i, (key, col, txt) in enumerate(blocks):
+        # keep bold names on one line by joining their words before wrapping
+        lines = textwrap.wrap(txt.replace("Everest Minds", "Everest\u00a0Minds"), 84)
+        top = y
+        rows = "".join(line_svg(tx, y + k * lh, l) for k, l in enumerate(lines))
+        y += len(lines) * lh
+        out.append(
+            f'<g class="up" style="animation-delay:{.5 + i * .25:.2f}s">'
+            f'<rect x="28" y="{top - 15}" width="3" height="{y - top - 2}" rx="1.5" fill="{col}"/>'
+            f'<text x="42" y="{top}" class="mono" font-size="13" fill="{col}">{key}</text>{rows}</g>'
+        )
+        y += 18
+    H = y + 6
+    body = f"""
+<defs>{GRAD_DEFS}</defs>
+<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="15.5" fill="{BG}" stroke="{BORDER}"/>
+{chrome(W, "~/profile/about.md — preview")}
+<text x="28" y="84" class="sans up" style="animation-delay:.2s" font-size="24" font-weight="800" letter-spacing="-.4" fill="url(#brand)">I build the screens where decisions get made.</text>
+{''.join(out)}"""
+    write("about.svg", svg(W, H, "About — I build the screens where decisions get made.", body))
 
 
 # ── footer ────────────────────────────────────────────────────────────────
@@ -775,4 +817,5 @@ if __name__ == "__main__":
     card_raycast()
     card_turbo_select()
     section_headers()
+    about()
     footer()

@@ -14,43 +14,25 @@
 
 <br/>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/headers/about-dark.svg" />
-  <img src="assets/headers/about-light.svg" width="100%" alt="01 — About" />
-</picture>
+<img src="assets/headers/about.svg" width="100%" alt="01 — About" />
 
-I build the screens where decisions get made.
-
-**Now** — real-time financial dashboards at **Octane**: transaction monitoring, risk assessment, analytics that update while you watch. A dropped frame or a mislabeled axis costs someone money, so I own both halves: the render path *and* the pixel.
-
-**Before** — full-stack at **Everest Minds**, shipping process-automation tools and cross-platform healthcare apps with React, NestJS, Angular, React Native, MySQL and MongoDB. Features owned end to end, design through deploy.
-
-**Origin** — biomedical and telecom field ops: complex hardware, compliance, real consequences. That's where I learned most bugs are systems problems wearing a code costume.
+<img src="assets/about.svg" width="100%" alt="About — I build the screens where decisions get made. Now: real-time financial dashboards at Octane — transaction monitoring, risk assessment, analytics that update while you watch; a dropped frame or a mislabeled axis costs someone money, so I own both the render path and the pixel. Before: full-stack at Everest Minds, shipping process-automation tools and cross-platform healthcare apps with React, NestJS, Angular, React Native, MySQL and MongoDB, features owned end to end. Origin: biomedical and telecom field ops — complex hardware, compliance, real consequences; that's where I learned most bugs are systems problems wearing a code costume." />
 
 <br/>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/headers/now-dark.svg" />
-  <img src="assets/headers/now-light.svg" width="100%" alt="02 — Right now" />
-</picture>
+<img src="assets/headers/now.svg" width="100%" alt="02 — Right now" />
 
 <img src="assets/now.svg" width="100%" alt="now.ts — role: Senior Software Engineer; shipping: real-time fintech dashboards at Octane; focus: Frontend Architecture, Design Systems, Data UI; daily: TypeScript, React, Next.js, Tailwind; exploring: LLM tooling, MCP servers, render performance; motto: Ship it, measure it, then make it beautiful." />
 
 <br/>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/headers/stack-dark.svg" />
-  <img src="assets/headers/stack-light.svg" width="100%" alt="03 — Stack" />
-</picture>
+<img src="assets/headers/stack.svg" width="100%" alt="03 — Stack" />
 
 <img src="assets/stack.svg" width="100%" alt="Stack — frontend: TypeScript, JavaScript, React, Next.js, Redux, Tailwind, Sass, HTML, CSS, Angular; backend: Node.js, NestJS, Express, PostgreSQL, MySQL, MongoDB, Redis, Supabase, Python; delivery: Git, GitHub Actions, Docker, Jest, Vercel, Figma, VS Code, Three.js; UI and motion: shadcn/ui, Radix, Framer Motion, React Native, Chakra UI; AI tooling: Claude, Anthropic API, OpenAI API, MCP servers, Raycast" />
 
 <br/>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/headers/work-dark.svg" />
-  <img src="assets/headers/work-light.svg" width="100%" alt="04 — Selected work" />
-</picture>
+<img src="assets/headers/work.svg" width="100%" alt="04 — Selected work" />
 
 <p align="center">
   <a href="https://www.open-gebra.com"><img src="assets/cards/open-gebra.svg" width="100%" alt="Open Gebra — an all-in-one interactive math suite: graphing, geometry, 3D, CAS and AI worksheets in one workspace, no install or account needed (live)" /></a>
@@ -70,19 +52,13 @@ I build the screens where decisions get made.
 
 <p align="center"><sub>every card is a link · <a href="https://portfolio-mohamedwaelbishrs-projects.vercel.app">more on the portfolio →</a></sub></p>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/headers/ship-dark.svg" />
-  <img src="assets/headers/ship-light.svg" width="100%" alt="05 — How I ship" />
-</picture>
+<img src="assets/headers/ship.svg" width="100%" alt="05 — How I ship" />
 
 <img src="assets/pipeline.svg" width="100%" alt="How I ship: spec, design, build, test, ship, measure — then a feedback loop back to spec." />
 
 <br/>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/headers/telemetry-dark.svg" />
-  <img src="assets/headers/telemetry-light.svg" width="100%" alt="06 — Telemetry" />
-</picture>
+<img src="assets/headers/telemetry.svg" width="100%" alt="06 — Telemetry" />
 
 <div align="center">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=MohamedWaelBishr&theme=github_dark" width="100%" alt="GitHub profile summary" />
@@ -97,10 +73,7 @@ I build the screens where decisions get made.
 </div>
 
 <div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/MohamedWaelBishr/MohamedWaelBishr/output/snake.svg" />
-    <img src="https://raw.githubusercontent.com/MohamedWaelBishr/MohamedWaelBishr/output/snake-light.svg" width="100%" alt="Contribution graph being eaten by a snake" />
-  </picture>
+  <img src="https://raw.githubusercontent.com/MohamedWaelBishr/MohamedWaelBishr/output/snake.svg" width="100%" alt="Contribution graph being eaten by a snake" />
 </div>
 
 <br/>
