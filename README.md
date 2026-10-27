@@ -57,11 +57,11 @@ I build the screens where decisions get made.
 </p>
 
 <p>
-  <a href="https://portfolio-mohamedwaelbishrs-projects.vercel.app"><img src="assets/cards/chronoflow.svg" width="50%" alt="ChronoFlow — visual workflow builder with 40+ node types, real-time collaboration and an auditable execution engine (private source)" /></a><a href="https://mocklyst.vercel.app"><img src="assets/cards/mocklyst.svg" width="50%" alt="Mocklyst — a working mock API endpoint in under 30 seconds (live demo)" /></a>
+  <a href="https://chronoflow-software.com/"><img src="assets/cards/chronoflow.svg" width="50%" alt="ChronoFlow — visual workflow builder with 40+ node types, real-time collaboration and an auditable execution engine (private source)" /></a><a href="https://mocklyst.vercel.app"><img src="assets/cards/mocklyst.svg" width="50%" alt="Mocklyst — a working mock API endpoint in under 30 seconds (live demo)" /></a>
 </p>
 
 <p>
-  <a href="https://teacher-toolbox-frontend.vercel.app"><img src="assets/cards/teacher-toolbox.svg" width="50%" alt="Teacher Toolbox — AI worksheet generator with drag-and-drop builder, KaTeX and DOCX export (live demo)" /></a><a href="https://azooz-lms-nextjs.vercel.app"><img src="assets/cards/azooz-lms.svg" width="50%" alt="Azooz LMS — learning management with React Three Fiber, Framer Motion and Mixpanel (live demo)" /></a>
+  <a href="https://teacher-toolbox.cloud/"><img src="assets/cards/teacher-toolbox.svg" width="50%" alt="Teacher Toolbox — AI worksheet generator with drag-and-drop builder, KaTeX and DOCX export (live demo)" /></a><a href="https://www.az00z.com/"><img src="assets/cards/azooz-lms.svg" width="50%" alt="Azooz LMS — learning management with React Three Fiber, Framer Motion and Mixpanel (live demo)" /></a>
 </p>
 
 <p>
